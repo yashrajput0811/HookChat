@@ -2,6 +2,10 @@
 
 HookChat is a sleek, real-time anonymous chat application that connects people based on shared interests. With its stunning Apple-inspired UI and powerful features, HookChat creates meaningful conversations without requiring user registration.
 
+## 📱 See HookChat in Action
+
+https://github.com/yashrajput0811/HookChat/raw/main/samplevideo/2025-04-06%2018-43-59.mkv
+
 ## ✨ Why Choose HookChat?
 
 ### 🎯 Perfect For
