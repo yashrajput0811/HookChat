@@ -2,8 +2,6 @@
 
 HookChat is a sleek, real-time anonymous chat application that connects people based on shared interests. With its stunning Apple-inspired UI and powerful features, HookChat creates meaningful conversations without requiring user registration.
 
-![HookChat Preview](https://your-image-url-here.png)
-
 ## ✨ Why Choose HookChat?
 
 ### 🎯 Perfect For
@@ -84,10 +82,6 @@ HookChat is a sleek, real-time anonymous chat application that connects people b
    ```bash
    # Using npm script (works on all platforms)
    npm run dev
-   
-   # Alternatively on Windows, you can use the batch file
-   .\start.bat
-   ```
 
 5. **Access the application**
    - Open your browser and navigate to:
@@ -138,4 +132,4 @@ HookChat is a sleek, real-time anonymous chat application that connects people b
 
 ---
 
-Built with ❤️ by [Your Name] 
+Built with ❤️ by Yash Rajput 
