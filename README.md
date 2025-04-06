@@ -4,10 +4,7 @@ HookChat is a sleek, real-time anonymous chat application that connects people b
 
 ## 📱 See HookChat in Action
 
-<video width="100%" controls>
-  <source src="samplevideo/2025-04-06 18-43-59.mkv" type="video/x-matroska">
-  Your browser does not support the video tag.
-</video>
+![HookChat Demo](gifs/hookchat-demo.gif)
 
 ## ✨ Why Choose HookChat?
 
