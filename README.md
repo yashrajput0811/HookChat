@@ -2,8 +2,6 @@
 
 HookChat is a real-time anonymous chat application that matches users based on their interests. Built with React, Node.js, and Socket.IO, it features a premium Apple-inspired UI with real-time translation capabilities.
 
-![HookChat UI Preview](https://user-images.githubusercontent.com/your-id/hookchat-preview.png)
-
 ## Features
 
 - 🌐 **Interest-Based Matching**: Connect with users who share your interests
@@ -22,6 +20,7 @@ HookChat is a real-time anonymous chat application that matches users based on t
   - Online/Offline status
 - 🛡️ **Anonymous**: No registration required, just pick your preferences and start chatting
 - 📱 **Responsive Design**: Works seamlessly on both desktop and mobile devices
+- ♿ **Accessibility Features**: Font size adjustments, high contrast mode, text-to-speech
 
 ## Design Philosophy
 
@@ -35,44 +34,76 @@ HookChat's UI follows a minimalist, Apple-inspired design philosophy:
 ## Prerequisites
 
 Before you begin, ensure you have installed:
-- Node.js (v14.0.0 or higher)
-- npm (v6.0.0 or higher)
+- Node.js (v16.0.0 or higher)
+- npm (v8.0.0 or higher)
 
-## Local Setup
+## Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/HookChat.git
+   git clone https://github.com/yashrajput0811/HookChat.git
    cd HookChat
    ```
 
-2. **Set up the server**
+2. **Install all dependencies at once**
    ```bash
-   cd server
-   npm install
+   npm run install:all
+   ```
+   This will install dependencies for:
+   - Root project
+   - Client application
+   - Server application
+
+3. **Create a `.env` file in the root directory**
+   ```env
+   # Server Configuration
+   PORT=3001
+   CLIENT_URL=http://localhost:5173
+
+   # Feature Flags
+   ENABLE_PREMIUM_FEATURES=false
+   ENABLE_GHOST_MODE=false
+   ENABLE_CUSTOM_AVATARS=false
    ```
 
-3. **Set up the client**
-   ```bash
-   cd ../client
-   npm install
-   ```
+## Running the Application
 
-4. **Start the application**
+### Start Both Client and Server
+Run the following command in the root directory:
+```bash
+npm run dev
+```
 
-   In the server directory:
-   ```bash
-   npm run dev
-   ```
+This will launch:
+- Client: http://localhost:5173
+- Server: http://localhost:3001
 
-   In a new terminal, in the client directory:
-   ```bash
-   npm run dev
-   ```
+### Running Components Separately
 
-5. **Access the application**
-   - Open your browser and navigate to `http://localhost:5173`
-   - The server will be running on `http://localhost:3001`
+If needed, you can run the client and server separately:
+
+For the client:
+```bash
+cd client
+npm run dev
+```
+
+For the server:
+```bash
+cd server
+npm start
+```
+
+## Application Structure
+
+- `client/`: React frontend application (Vite)
+  - `src/components/`: Reusable UI components
+  - `src/pages/`: Main application pages
+  - `src/providers/`: Context providers
+  - `src/store/`: State management
+  - `src/services/`: API services
+- `server/`: Node.js backend server (Express + Socket.IO)
+  - `index.js`: Main server file with Socket.IO logic
 
 ## Testing the Application
 
@@ -99,36 +130,29 @@ Before you begin, ensure you have installed:
    - **Image Sharing**: Click the image icon and upload an image
    - **Emojis**: Click the emoji icon to open the emoji picker
    - **Typing Indicator**: Start typing to see the "Partner is typing..." indicator
+   - **Accessibility**: Test the accessibility features from the floating button
 
 ## Dependencies
 
 ### Server Dependencies
-- express
-- socket.io
-- cors
-- @vitalets/google-translate-api
-- dotenv
-- uuid
+- express - Web server framework
+- socket.io - Real-time communication
+- cors - Cross-origin resource sharing
+- @vitalets/google-translate-api - Message translation
+- dotenv - Environment variable management
+- uuid - Unique ID generation
 
 ### Client Dependencies
-- react
-- react-router-dom
-- socket.io-client
-- framer-motion
-- react-icons
-- emoji-picker-react
-- axios
-- tailwindcss
+- react - UI library
+- react-router-dom - Routing
+- socket.io-client - Real-time communication client
+- framer-motion - Animations
+- react-icons - Icon library
+- emoji-picker-react - Emoji selection
+- axios - HTTP requests
+- tailwindcss - Styling
 
-## Environment Variables
-
-Create a `.env` file in the server directory:
-```env
-PORT=3001
-CLIENT_URL=http://localhost:5173
-```
-
-## Common Issues & Solutions
+## Troubleshooting
 
 1. **Port Already in Use**
    ```bash
@@ -143,19 +167,30 @@ CLIENT_URL=http://localhost:5173
    - Ensure both server and client are running
    - Check if the ports 3001 and 5173 are available
    - Verify the CLIENT_URL in server's .env matches the client's URL
+   - Clear browser cache or try incognito mode
 
-## Recent UI/UX Improvements
+3. **Windows PowerShell Issues**
+   - If you encounter command chaining issues with PowerShell, use the start.bat file
+   ```bash
+   .\start.bat
+   ```
 
-The latest version includes a complete UI/UX overhaul:
-- Implemented Apple-inspired design language
-- Added smooth animations using Framer Motion
-- Created a beautiful landing page with scrolling sections
-- Enhanced chat interface with modern bubble design
-- Improved typography with Inter font
-- Added responsive mobile optimizations
-- Created custom loading animations
-- Implemented dark mode as default theme
+## Key Features in Detail
+
+### Interest-Based Matching
+The application uses a simple but effective algorithm to match users based on common interests. When a user joins, their interests are compared against other waiting users, and a match is made when at least one interest overlaps.
+
+### Real-Time Translation
+Messages can be automatically translated to the receiver's language by toggling the translation icon in the chat header. This feature uses Google's translation API via the @vitalets/google-translate-api package.
+
+### Accessibility Features
+The application includes several accessibility enhancements:
+- Font size adjustments (small, medium, large)
+- High contrast mode
+- Reduced animations option
+- Dyslexia-friendly font
+- Text-to-speech for incoming messages
 
 ## Contributing
 
-Feel free to submit issues and enhancement requests! 
+Feel free to submit issues and enhancement requests! The codebase uses comprehensive JSDoc comments to make contribution easier. 

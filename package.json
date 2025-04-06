@@ -4,9 +4,9 @@
   "description": "Modern anonymous chat platform",
   "private": true,
   "scripts": {
-    "client": "cd client; npm run dev",
-    "server": "cd server; npm start",
-    "dev": "powershell -Command \"Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd client; npm run dev' ; Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd server; npm start'\"",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm start",
+    "dev": "powershell -Command \"Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd client; npm run dev'\" ; powershell -Command \"Start-Process powershell -ArgumentList '-NoExit', '-Command', 'cd server; npm start'\"",
     "install:all": "npm install && cd client && npm install && cd ../server && npm install"
   },
   "devDependencies": {

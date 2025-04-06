@@ -20,7 +20,7 @@ export default defineConfig({
         ws: true,
       },
     },
-    strictPort: true,
+    strictPort: false,
     watch: {
       usePolling: true
     }

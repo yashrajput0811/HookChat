@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { IoChevronDown, IoArrowForward, IoGlobeOutline, IoShieldCheckmarkOutline, IoChatbubblesOutline, IoLanguageOutline } from 'react-icons/io5';
+import { IoChevronDown, IoArrowForward, IoGlobeOutline, IoShieldCheckmarkOutline, IoChatbubblesOutline, IoLanguageOutline, IoAccessibility } from 'react-icons/io5';
+import AccessibilityFeatures from '../components/accessibility/AccessibilityFeatures';
 
 const features = [
   {
@@ -23,6 +24,11 @@ const features = [
     icon: <IoLanguageOutline className="w-8 h-8" />,
     title: 'Real-Time Translation',
     description: 'Chat in your language with anyone, anywhere',
+  },
+  {
+    icon: <IoAccessibility className="w-8 h-8" />,
+    title: 'Accessibility Features',
+    description: 'Inclusive design for users with diverse abilities',
   },
 ];
 
@@ -95,14 +101,27 @@ export default function Landing() {
           >
             Hook<span className="text-purple-400">Chat</span>
           </motion.div>
-          <motion.button
-            onClick={() => navigate('/setup')}
-            className="px-5 py-2 rounded-full bg-white text-black font-medium text-sm tracking-wide transition-all hover:bg-opacity-90"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Start Chatting
-          </motion.button>
+          
+          <div className="flex items-center gap-3">
+            <motion.button
+              onClick={() => navigate('/accessibility')}
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 text-white"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Accessibility settings"
+            >
+              <IoAccessibility className="w-5 h-5" />
+            </motion.button>
+            
+            <motion.button
+              onClick={() => navigate('/setup')}
+              className="px-5 py-2 rounded-full bg-white text-black font-medium text-sm tracking-wide transition-all hover:bg-opacity-90"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Start Chatting
+            </motion.button>
+          </div>
         </div>
       </motion.header>
 
@@ -133,7 +152,7 @@ export default function Landing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            An anonymous chat platform that connects you with like-minded individuals from around the world, with seamless real-time translation.
+            An anonymous chat platform that connects you with like-minded individuals from around the world, with seamless real-time translation and accessibility features.
           </motion.p>
           
           <motion.div
@@ -430,6 +449,9 @@ export default function Landing() {
           </div>
         </div>
       </footer>
+
+      {/* Add the AccessibilityFeatures component */}
+      <AccessibilityFeatures />
     </div>
   );
 } 
